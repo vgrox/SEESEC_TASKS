@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h4 mb-3">Enter Student Details</h1>
+        <form action="/predict" method="POST" novalidate>
+          {% for field in feature_order %}
+          <div class="mb-3">
+            <label class="form-label text-capitalize" for="{{ field }}">{{ field.replace('_',' ') }}</label>
+            <input class="form-control {% if errors and errors.get(field) %}is-invalid{% endif %}"
+                   type="number" step="any" name="{{ field }}" id="{{ field }}"
+                   value="{{ (values and values.get(field)) or '' }}" required>
+            {% if errors and errors.get(field) %}
+            <div class="invalid-feedback">{{ errors.get(field) }}</div>
+            {% else %}
+            <div class="form-text">Enter a number.</div>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit">Predict</button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+          </div>
+        </form>
+        <hr class="my-4">
+        <p class="text-muted mb-0">You can also POST JSON to <code>/predict</code>:
+          <pre class="mt-2 bg-light p-2"><code>{
+  "hours_studied": 5,
+  "attendance_percent": 90,
+  "assignments_submitted": 6
+}</code></pre>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

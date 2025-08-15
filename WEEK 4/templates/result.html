@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h4">Predicted Performance</h1>
+        <p class="mb-1"><strong>Score:</strong> {{ score }}</p>
+        <p class="mb-4"><strong>Grade:</strong> {{ grade }}</p>
+        <h2 class="h6">Inputs</h2>
+        <ul>
+          <li>Hours studied: {{ inputs['hours_studied'] }}</li>
+          <li>Attendance %: {{ inputs['attendance_percent'] }}</li>
+          <li>Assignments submitted: {{ inputs['assignments_submitted'] }}</li>
+        </ul>
+        <a class="btn btn-outline-primary" href="/">Try Again</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
