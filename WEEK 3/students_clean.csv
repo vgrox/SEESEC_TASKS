@@ -1,0 +1,6 @@
+name,math,science,english,grade,hours_studied,pass_fail,total,average
+Rohan,85,90,88,A,15,Pass,263,87.66666666666667
+Raman,78,82,80,B,12,Pass,240,80.0
+Arnav,60,58,65,C,8,Fail,183,61.0
+Aryan,92,95,94,A,20,Pass,281,93.66666666666667
+Rishi,55,50,52,D,5,Fail,157,52.333333333333336
